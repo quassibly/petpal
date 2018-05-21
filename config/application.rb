@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Petpal
   class Application < Rails::Application
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
 
     config.generators do |generate|
           generate.assets false
