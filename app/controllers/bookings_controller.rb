@@ -9,9 +9,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new(booking_params)
     @user = current_user
-    @booking.user = @user
+    @booking.user_id = @user.id
+    @booking.pet_id = @pet_id
     if @booking.save
       redirect_to user_path(@user)
     else
@@ -42,7 +44,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:pet_id, :start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
 end
