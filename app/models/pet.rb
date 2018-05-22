@@ -9,6 +9,7 @@ class Pet < ApplicationRecord
   validates :take_away, presence: true
   validates :adoptable, presence: true
   validates :user_id, presence: true
-  # mount_uploader :photo, PhotoUploader
+
+  mount_uploader :photo, PhotoUploader
 end
 
