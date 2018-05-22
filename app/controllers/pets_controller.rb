@@ -1,4 +1,9 @@
 class PetsController < ApplicationController
+  def home
+    @pets = Pet.all
+    @top = Pet.first(10)
+  end
+
   def index
     @pets = Pet.all
   end
