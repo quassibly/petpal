@@ -8,6 +8,9 @@
 User.create(email: "daniel.blake1@hotmail.co.uk", password: "password", name: "Daniel")
 User.create(email: "lota@gmail.com", password: "123123", name: "lota")
 
+User.create(email: "daniel.blake1@hotmail.co.uk", password: "password", name: "Daniel")
+User.create(email: "lota@gmail.com", password: "123123", name: "lota")
+
 Pet.create(name: "Fluffy", animal_type: "Lion", breed: "African Lion", age: 12, home_stay: true, take_away: true, adoptable: true, user_id: 1)
 Pet.create(name: "Melinda", animal_type: "Unicorn", breed: "Rainbow", age: 9, take_away: true, user_id: 2)
 Pet.create(name: "Rico", animal_type: "Snake", breed: "Python", age: 20, take_away: true, home_stay: true, adoptable: true, user_id: 1)
