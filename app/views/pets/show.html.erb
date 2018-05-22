@@ -1,4 +1,24 @@
 <div class="container">
   <h1>Individual pet goes herePets#show</h1>
   <p>Find me in app/views/pets/show.html.erb</p>
+
+  <% cl_image_tag("zoqnxahbwbqijo2tsrju.jpg")  %>
+  # picture
+
+  <h1><%= @pet.name %></h1>
+  <h2><%= @pet.age %></h2>
+  <p><%= @pet.description %></p>
+  <% if @pet.breed.exist? %>
+    <p><%= @pet.breed %></p>
+  <% else %>
+    <p><%= @pet.animal_type %></p>
+  <% end %>
+  # size
+  # sex
+  # color
+
+<!-- calendar -->
+<!-- map -->
+<!-- reviews -->
+<!--   # booking button -->
 </div>
