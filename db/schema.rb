@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_120630) do
     t.string "location"
     t.boolean "home_stay", default: false
     t.boolean "take_away", default: false
-    t.string "adoptable", default: "f"
+    t.boolean "adoptable", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

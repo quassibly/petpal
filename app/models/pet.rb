@@ -5,9 +5,6 @@ class Pet < ApplicationRecord
 
   validates :name, presence: true
   validates :animal_type, presence: true
-  validates :home_stay, presence: true
-  validates :take_away, presence: true
-  validates :adoptable, presence: true
   validates :user_id, presence: true
 
   mount_uploader :photo, PhotoUploader
