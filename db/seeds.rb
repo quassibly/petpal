@@ -16,3 +16,6 @@ Pet.create(name: "Robert Rubby", animal_type: "Duck", age: 1, home_stay: true, u
 Pet.create(name: "Ginger", animal_type: "Cat", age: 7, home_stay: true, take_away: true, user_id: 2)
 Pet.create(name: "Kinkaid", animal_type: "Dog", breed: "Golden Retriever", age: 3, home_stay: true, take_away: true, user_id: 1)
 
+Booking.create(pet_id: 2, user_id: 2, start_date: 20180106, end_date: 20180202 )
+Booking.create(pet_id: 5, user_id: 1, start_date: 20180105, end_date: 20180202 )
+Booking.create(pet_id: 6, user_id: 2, start_date: 20180104, end_date: 20180202 )

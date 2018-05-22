@@ -1,18 +1,21 @@
 class BookingsController < ApplicationController
 
   def index
-    authorize @booking
-    @bookings = Booking.where(:user_id = current_user)
+    @bookings = Booking.where(:user_id == current_user)
+    @bookings = policy_scope(Booking)
+
+
   end
 
   def show
-    authorize @booking
+    @booking = policy_scope(Booking).find(params[:id])
     @user = current_user
-    @booking = Booking.find(@user)
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -34,6 +37,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.update(booking_params)
     if @booking.save
       redirect_to user_path(current_user)
@@ -44,6 +48,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to user_path(current_user)
   end

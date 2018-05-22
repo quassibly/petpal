@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @bookings = Booking.where(:user_id == @user)
+    authorize @user
   end
+
+
 
 # def edit
  #   @user = User.find(params[:id])
