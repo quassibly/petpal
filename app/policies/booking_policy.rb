@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      record.user == user
+      scope
     end
 
     def index
@@ -9,7 +9,7 @@ class BookingPolicy < ApplicationPolicy
     end
 
     def show
-      @record.user == @user
+      true
     end
 
     def create
