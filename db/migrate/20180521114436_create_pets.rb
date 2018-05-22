@@ -9,7 +9,7 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.string :location
       t.boolean :home_stay, default: false
       t.boolean :take_away, default: false
-      t.string :adoptable, default: false
+      t.boolean :adoptable, default: false
       t.references :user, foreign_key: true
 
       t.timestamps

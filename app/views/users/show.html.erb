@@ -1,4 +1,17 @@
 <h2>User dashboard</h2>
+
+<h3>User Bookings</h3>
+<ul>
 <% @user.bookings.each do |booking| %>
-  <%= booking.pet_id %> - <%= booking.start_date %> - <%= booking.end_date %>
+  <li><%=  link_to booking.pet.name, pet_booking_path(booking.pet_id) %> - Start Date: <%= booking.start_date %> - End Date: <%= booking.end_date %></li>
+<% end %>
+</ul>
+  <h3>Pet Bookings</h3>
+<ul>
+  <% @user.pets.each do |pet| %>
+    <% pet.bookings.each do |booking| %>
+      <li><%= link_to booking.pet.name, pet_booking_path(booking.pet_id) %> - Start Date: <%= booking.start_date %> - End Date: <%= booking.end_date %>
+      </li>
+    <% end %>
   <% end %>
+</ul>
