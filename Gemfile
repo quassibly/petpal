@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'devise'
-
 gem 'bootsnap', require: false
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -14,6 +13,7 @@ gem 'redis'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'pundit'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
