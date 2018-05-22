@@ -4,7 +4,7 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :animal_type
       t.string :breed
-      t.integer :age
+      t.string :age
       t.text :description
       t.string :location
       t.boolean :home_stay, default: false

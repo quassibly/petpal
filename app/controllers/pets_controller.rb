@@ -10,6 +10,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def new
@@ -19,11 +20,16 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    # @pet.home_stay = @pet.home_stay.to_s == "true"
+    # @pet.take_away = @pet.take_away.to_s == "true"
+    # @pet.adoptable = @pet.adoptable.to_s == "true"
+    @pet.user = current_user
     if @pet.save
       redirect_to pet_path(@pet)
     else
       render :new
     end
+    authorize @pet
   end
 
   def edit
@@ -47,6 +53,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.permit(:pet).require(:name, :animal_type, :breed, :take_away, :home_stay, :age, :photo)
+    params.require(:pet).permit(:name, :animal_type, :breed, :take_away, :home_stay, :age, :photo, :location, :description, :adopatable)
   end
 end

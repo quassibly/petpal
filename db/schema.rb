@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_120630) do
     t.string "name"
     t.string "animal_type"
     t.string "breed"
-    t.integer "age"
+    t.string "age"
     t.text "description"
     t.string "location"
     t.boolean "home_stay", default: false
