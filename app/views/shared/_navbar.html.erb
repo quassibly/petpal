@@ -11,7 +11,13 @@
         <%= link_to "New pet", new_pet_path %>
       </li>
       <li class="menu-item-nav-pp">
-        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+      <li class="menu-item-nav-pp">
+        <%= link_to "Sign in", new_user_session_path %>
+      </li>
+      <li class="menu-item-nav-pp">
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       </li>
     </ul>
 </div>

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :bookings, except: [:index]
   end
 
-  resources :users, except: [:index, :destroy]
+#  resources :users, except: [:index, :destroy]
 end
