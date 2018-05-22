@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+User.create(email: "daniel.blake1@hotmail.co.uk", password: "password", name: "Daniel")
+User.create(email: "lota@gmail.com", password: "123123", name: "lota")
 
 User.create(email: "daniel.blake1@hotmail.co.uk", password: "password", name: "Daniel")
 User.create(email: "lota@gmail.com", password: "123123", name: "lota")
@@ -22,3 +23,5 @@ Pet.create(name: "Kinkaid", animal_type: "Dog", breed: "Golden Retriever", age: 
 Booking.create(pet_id: 2, user_id: 2, start_date: 20180106, end_date: 20180202 )
 Booking.create(pet_id: 5, user_id: 1, start_date: 20180105, end_date: 20180202 )
 Booking.create(pet_id: 6, user_id: 2, start_date: 20180104, end_date: 20180202 )
+
+
