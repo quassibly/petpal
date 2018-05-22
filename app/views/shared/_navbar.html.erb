@@ -1,21 +1,47 @@
 <div class="nav-pp">
   <div class="search-cont-nav-pp">
-    <img class="logo-nav-pp" src="ccc.com" alt="">
+    <%= link_to root_path do %>
+     <%= image_tag "logo-petpal.jpeg", class:"logo-nav-pp" %>
+    <% end %>
+
     <input class="search-nav-pp" type="text" name="" value="">
   </div>
     <ul class="menu-nav-pp">
-      <li class="menu-item-nav-pp">
-        <%= link_to "New pet", new_pet_path %>
-      </li>
-      <li class="menu-item-nav-pp">
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li class="menu-item-nav-pp">
-        <%= link_to "Sign in", new_user_session_path %>
-      </li>
-      <li class="menu-item-nav-pp">
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      </li>
+
+      <% if !user_signed_in? %>
+        <li class="menu-item-nav-pp">
+          <%= link_to "Sign up", new_user_registration_path, class: "menu-link-nav-pp" %>
+        </li>
+      <% end %>
+      <% if !user_signed_in? %>
+        <li class="menu-item-nav-pp">
+            <%= link_to "Log in", new_user_session_path, class: "menu-link-nav-pp" %>
+        </li>
+      <% end %>
+
+     <% if user_signed_in? %>
+        <li class="menu-item-nav-pp">
+            <%= link_to "Dashboard", root_path, class: "menu-link-nav-pp" %>
+        </li>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li class="menu-item-nav-pp">
+            <%= link_to "Manage pets", root_path, class: "menu-link-nav-pp" %>
+        </li>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li class="menu-item-nav-pp">
+            <%= link_to "Settings", root_path, class: "menu-link-nav-pp" %>
+        </li>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li class="menu-item-nav-pp">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "menu-link-nav-pp" %>
+        </li>
+      <% end %>
     </ul>
 </div>
 
