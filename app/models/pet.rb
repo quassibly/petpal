@@ -4,7 +4,7 @@ class Pet < ApplicationRecord
   has_many :bookings
 
   validates :name, presence: true
-  validates :type, presence: true
+  validates :animal_type, presence: true
   validates :home_stay, presence: true
   validates :take_away, presence: true
   validates :adoptable, presence: true
