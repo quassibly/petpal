@@ -13,6 +13,11 @@ class PetsController < ApplicationController
   def filter_by
   end
 
+  def show
+    @pet = Pet.find(params[:id])
+    authorize @pet
+  end
+
   def new
     @pet = Pet.new
     authorize @pet
