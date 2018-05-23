@@ -1,13 +1,15 @@
 <div class= "container" style="text-align:center">
   <h2>Booking Info</h2>
-  <%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:
+<div class="picture">
 <!-- user info to come  -->
-  <%= cl_image_tag(@booking.pet.photo) %>
-
+  <%= cl_image_tag(@booking.pet.photo, width: 300, height:300, crop: :fill)   %>
+</div>
+<div>
+  <%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:
   <p><%= @booking.start_date %></p>
    to
    <%= @booking.end_date %>
-
+</div>
   <h3 style="color:#FF5E3A">This booking is currently: <%= @booking.status %></h3>
 
 </div>
