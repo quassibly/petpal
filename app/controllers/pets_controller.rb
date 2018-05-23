@@ -37,10 +37,12 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def update
     @pet = Pet.find(params[:id])
+    authorize @pet
     if @pet.update(pet_params)
       redirect_to pet_path(@pet)
     else
@@ -56,6 +58,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal_type, :breed, :take_away, :home_stay, :age, :photo, :location, :description, :adopatable)
+    params.require(:pet).permit(:name, :animal_type, :breed, :take_away, :home_stay, :age, :photo, :photo_cache, :location, :description, :adopatable)
   end
 end

@@ -1,24 +1,36 @@
 <div class="container">
-  <h1>Individual pet goes herePets#show</h1>
-  <p>Find me in app/views/pets/show.html.erb</p>
+  <h1>Your Pal <%= @pet.name %></h1>
 
-  <% cl_image_tag("zoqnxahbwbqijo2tsrju.jpg")  %>
+  <%= cl_image_tag(@pet.photo) %>
   # picture
 
-  <h1><%= @pet.name %></h1>
-  <h2><%= @pet.age %></h2>
-  <p><%= @pet.description %></p>
+  <h3>Age: <%= @pet.age %></h3>
+  <p>Description: <%= @pet.description %></p>
   <% if @pet.breed %>
-    <p><%= @pet.breed %></p>
+    <p> Breed: <%= @pet.breed %></p>
   <% else %>
     <p><%= @pet.animal_type %></p>
   <% end %>
   # size
   # sex
   # color
+  # take away?
+  # home stay?
+
+<p><%= link_to "Edit Pal", edit_pet_path, class:"btn btn-primary" %></p>
+
+<% if @pet.photo.nil?  %>
+<%= simple_form_for @pet do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+<%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>
+<% end %>
+
+
 
 <!-- calendar -->
 <!-- map -->
 <!-- reviews -->
 <!--   # booking button -->
-</div>
+
