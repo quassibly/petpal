@@ -44,12 +44,13 @@
     <% @user.pets.each do |pet| %>
     <div class="col-xs-6 col-md-3">
       <div class="card">
-      <div class="card-image"style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= pet.photo %>')" ></div>
-      <div class="card-heading">
-        <p class="card-heading-item text-md"><%= link_to pet.name %></p>
+        <div class="card-image"style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= pet.photo %>')" ></div>
+        <div class="card-heading">
+          <p class="card-heading-item text-md"><%= link_to pet.name %></p>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
-<% end %>
-
+    <%= link_to 'Add a new Pet Pal!', new_pet_path, class:"btn btn-primary" %>
 </div>
