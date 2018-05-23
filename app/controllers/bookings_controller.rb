@@ -31,13 +31,14 @@ class BookingsController < ApplicationController
 
   def create
     skip_authorization
-    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new(booking_params)
-    @user = current_user
-    @booking.user_id = @user.id
-    @booking.pet_id = @pet.id
+    @pet = params[:pet_id]
+    @booking.user_id = current_user.id
+    pet_id = params[:pet_id]
+    @booking.pet_id = pet_id
+    raise
     if @booking.save
-      redirect_to user_booking_path(@user, @booking)
+      redirect_to user_booking_path(user_id: current_user, id: pet_id)
     else
       render :new
     end
@@ -82,7 +83,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :user_id)
   end
 
 end
