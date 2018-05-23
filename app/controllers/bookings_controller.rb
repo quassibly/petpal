@@ -10,11 +10,11 @@ class BookingsController < ApplicationController
   def show
     if params[:pet_id].nil?
     user_id = params[:user_id]
-    pet_id = params[:id]
+    pet_id = params[:pet_id]
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
 
   else
-    user_id = params[:id]
+    user_id = params[:user_id]
     pet_id = params[:pet_id]
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
   end
@@ -24,7 +24,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @user = params[:user_id]
     @pet = params[:pet_id]
     skip_authorization
   end
@@ -32,13 +31,11 @@ class BookingsController < ApplicationController
   def create
     skip_authorization
     @booking = Booking.new(booking_params)
-    @pet = params[:pet_id]
     @booking.user_id = current_user.id
     pet_id = params[:pet_id]
     @booking.pet_id = pet_id
-    raise
     if @booking.save
-      redirect_to user_booking_path(user_id: current_user, id: pet_id)
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -46,7 +43,7 @@ class BookingsController < ApplicationController
 
   def edit
     user_id = params[:user_id]
-    pet_id = params[:id]
+    pet_id = params[:pet_id]
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
     skip_authorization
   end
@@ -63,8 +60,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.find(params[:id])
-    authorize @booking
+    user_id = params[:user_id]
+    pet_id = params[:pet_id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+    skip_authorization
     @booking.destroy
     redirect_to user_path(current_user)
   end
@@ -83,7 +82,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :pet_id)
   end
 
 end
