@@ -24,7 +24,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @pet = Pet.find(params[:pet_id])
+    @user = params[:user_id]
+    @pet = params[:pet_id]
     skip_authorization
   end
 
@@ -67,6 +68,17 @@ class BookingsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+
+  def accept
+    pet_id = params[:pet_id]
+    user_id = params[:user_id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
+    skip_authorization
+    @booking.status = "Accepted"
+    @booking.save
+    redirect_to user_booking_path(id: pet_id, user_id: user_id)
+
+  end
   private
 
   def booking_params
