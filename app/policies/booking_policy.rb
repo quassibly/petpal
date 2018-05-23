@@ -16,8 +16,15 @@ class BookingPolicy < ApplicationPolicy
       true
     end
 
+    def new
+      true
+    end
+
+    def edit
+      true
+    end
     def update
-      @record.user == @user
+      true
     end
 
     def destroy

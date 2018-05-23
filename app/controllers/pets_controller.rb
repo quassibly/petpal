@@ -6,11 +6,10 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet)
+    @pet = Pet.new
   end
 
-  def show
-    @pet = Pet.find(params[:id])
-    authorize @pet
+  def filter_by
   end
 
   def new
