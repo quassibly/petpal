@@ -1,27 +1,55 @@
+<div class="container">
+  <h2>User dashboard - <%= @user.name %></h2>
 
-<h2>User dashboard - <%= @user.name %></h2>
+  <h3>User Bookings</h3>
+  <div class="row card-container">
+   <% @user.bookings.each do |booking| %>
+   <div class="col-xs-6 col-md-3">
+    <div class="card">
+      <div class="card-image" style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= booking.pet.photo %>')"></div>
+      <div class="card-heading">
+        <p class="card-heading-item text-md"><%= link_to booking.pet.name %></p>
+      </div>
+      <p class="text-sm">
+       Owner: <%= booking.pet.user.name %></p>
+       <p>Start: <%= booking.start_date %></p>
+       <p>End: <%= booking.end_date %></p>
+     </div>
+   </div>
+   <% end %>
+ </div>
 
-<h3>User Bookings</h3>
-<ul>
-<% @user.bookings.each do |booking| %>
-  <li><%=  link_to booking.pet.name, pet_booking_path(booking.pet_id, booking.user_id) %> - Start Date: <%= booking.start_date %> - End Date: <%= booking.end_date %></li>
-<% end %>
-</ul>
-  <h3>Pet Bookings</h3>
-<ul>
+ <h3>Pet Bookings</h3>
+ <div class="row card-container">
   <% @user.pets.each do |pet| %>
-
-    <% pet.bookings.each do |booking| %>
-     <li> <%= link_to booking.pet.name, user_booking_path(booking.user_id, booking.pet_id ) %> - Start Date: <%= booking.start_date %> - End Date: <%= booking.end_date %>
-      </li>
+  <% pet.bookings.each do |booking| %>
+  <div class="col-xs-6 col-md-3">
+    <div class="card">
+      <div class="card-image" style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= booking.pet.photo %>')"></div>
+      <div class="card-heading">
+        <p class="card-heading-item text-md"><%= link_to booking.pet.name %></p>
+      </div>
+      <p class="text-sm">
+        Booker: <%= booking.user.name %></p>
+        <p>Start: <%= booking.start_date %></p>
+        <p>End Date: <%= booking.end_date %></p>
+      </div>
+    </div>
     <% end %>
-  <% end %>
-</ul>
+    <% end %>
+  </div>
 
-<h3>Your Pals</h3>
-<ul>
-  <% @user.pets.each do |pet| %>
-    <li><%= cl_image_tag(pet.photo, width: 150, height: 150, crop: :fill) %></li>
-  <% end %>
-</ul>
+  <h3>Your Pals</h3>
+  <div class="row card-container">
+    <% @user.pets.each do |pet| %>
+    <div class="col-xs-6 col-md-3">
+      <div class="card">
+      <div class="card-image"style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= pet.photo %>')" ></div>
+      <div class="card-heading">
+        <p class="card-heading-item text-md"><%= link_to pet.name %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
 
+</div>
