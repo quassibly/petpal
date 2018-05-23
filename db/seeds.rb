@@ -1,14 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 User.create(email: "daniel.blake1@hotmail.co.uk", password: "password", name: "Daniel")
 User.create(email: "lota@gmail.com", password: "123123", name: "lota")
 User.create(email: "kolja.lucht@gmail.com", password: "kolja1234", name: "kolja")
 User.create(email: "quassibly@gmail.com", password: "password", name: "meredith")
+
 
 
 Pet.create(name: "Fluffy", animal_type: "Lion", breed: "African Lion", age: 12, home_stay: true, take_away: true, adoptable: true, user_id: 1, location: "123 Billy Street, WE3 1RB")
@@ -25,7 +19,5 @@ Pet.create(name: "Poppa", animal_type: "Pony", breed: "Iceland Pony", age: 4, ho
 Booking.create(pet_id: 2, user_id: 1, start_date: 20180106, end_date: 20180202 )
 Booking.create(pet_id: 5, user_id: 1, start_date: 20180105, end_date: 20180202 )
 Booking.create(pet_id: 6, user_id: 2, start_date: 20180104, end_date: 20180202 )
-Booking.create(pet_id: 9, user_id: 4, start_date: 20180106, end_date: 20180202)
-Booking.create(pet_id: 1, user_id: 3, start_date: 20180106, end_date: 20180202)
-
-
+Booking.create(pet_id: 9, user_id: 4, start_date: 20180106, end_date: 20180202 )
+Booking.create(pet_id: 1, user_id: 3, start_date: 20180106, end_date: 20180202 )
