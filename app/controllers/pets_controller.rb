@@ -13,6 +13,9 @@ class PetsController < ApplicationController
     authorize @pet
   end
 
+  def filter_by
+  end
+
   def new
     @pet = Pet.new
     authorize @pet
