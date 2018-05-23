@@ -1,6 +1,22 @@
-<h2>Booking Info</h2>
-<p><%= @booking.pet.name %> - <%= @booking.user.email %></p>
-<p><%= @booking.start_date %> to <%= @booking.end_date %></p>
-<h3><%= @booking.status %></h3>
+<div class= "container" style="text-align:center">
+  <h2>Booking Info</h2>
+  <%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:
+<!-- user info to come  -->
+  <%= cl_image_tag(@booking.pet.photo) %>
 
+  <p><%= @booking.start_date %></p>
+   to
+   <%= @booking.end_date %>
+
+  <h3 style="color:#FF5E3A">This booking is currently: <%= @booking.status %></h3>
+
+</div>
 <!-- map to come  -->
+<div class="links" style="text-align:center">
+  <div class="link" style="text-align:center">
+    <%= link_to 'Edit Booking', edit_user_booking_path(current_user, @booking.pet_id) %>
+  </div>
+  <div class="link">
+    <%= link_to 'Cancel Booking', user_booking_path(@booking), method: :delete %>
+  </div>
+</div>
