@@ -1,2 +1,6 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h2>Pet Pal booking</h2>
+<%= simple_form_for [@pet,@booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book your Pet Pal now!", class: "btn btn-primary" %>
+<% end %>

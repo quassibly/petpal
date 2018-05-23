@@ -21,19 +21,19 @@
 
      <% if user_signed_in? %>
         <li class="menu-item-nav-pp">
-            <%= link_to "Dashboard", root_path, class: "menu-link-nav-pp" %>
+            <%= link_to "Dashboard", user_path(current_user), class: "menu-link-nav-pp" %>
         </li>
       <% end %>
 
       <% if user_signed_in? %>
         <li class="menu-item-nav-pp">
-            <%= link_to "Manage pets", root_path, class: "menu-link-nav-pp" %>
+            <%= link_to "Manage pets", user_path(current_user), class: "menu-link-nav-pp" %>
         </li>
       <% end %>
 
       <% if user_signed_in? %>
         <li class="menu-item-nav-pp">
-            <%= link_to "Settings", root_path, class: "menu-link-nav-pp" %>
+            <%= link_to "Settings", user_path(current_user), class: "menu-link-nav-pp" %>
         </li>
       <% end %>
 
