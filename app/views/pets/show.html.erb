@@ -1,26 +1,32 @@
 <div class="container">
   <h1>Your Pal <%= @pet.name %></h1>
-
-  <%= cl_image_tag(@pet.photo) %>
-
+  <br>
+  <h4><%= @pet.location %></h4>
+  <br>
+  <%= cl_image_tag(@pet.photo, height: 400, width: 400, crop: :fill) %>
+  <br>
   <h3>Age: <%= @pet.age %></h3>
+  <br>
   <p>Description: <%= @pet.description %></p>
+  <br>
   <% if @pet.breed.nil? %>
-    <p> Breed: <%= @pet.animal_type  @pet.breed %></p>
+    <p> Breed: <%= @pet.animal_type %>  <%= @pet.breed %></p>
   <% else %>
     <p><%= @pet.animal_type %></p>
   <% end %>
 
+<br>
   <p><%= @pet.take_away == true ? "You can take this pet home!" : "This pet cannot be taken from its natural habitat"%></p>
+  <br>
  <p><%= @pet.home_stay == true ? "You can come visit this pet at its home!" : "You are not able to come visit this pets home" %></p>
-
+ <br>
 <% if @pet.user == current_user %>
    <%= link_to "Edit Pal", edit_pet_path, class:"btn btn-primary" %>
   <%else%>
-    <%#=link_to "Book this Pal", new_user_booking_path(user_id: current_user), class:"btn btn-primary"%>
+    <%=link_to "Book this Pal", new_user_booking_path(user_id: current_user, pet_id: @pet.id), class:"btn btn-primary"%>
   <% end %>
   </p>
-
+<br>
 
 <% if @pet.photo.nil?  %>
 <%= simple_form_for @pet do |f| %>
