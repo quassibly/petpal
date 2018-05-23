@@ -6,7 +6,7 @@
   <h3>Age: <%= @pet.age %></h3>
   <p>Description: <%= @pet.description %></p>
   <% if @pet.breed.nil? %>
-    <p> Breed: <%= @pet.animal_type @pet.breed %></p>
+    <p> Breed: <%= @pet.animal_type  @pet.breed %></p>
   <% else %>
     <p><%= @pet.animal_type %></p>
   <% end %>
@@ -17,7 +17,7 @@
 <% if @pet.user == current_user %>
    <%= link_to "Edit Pal", edit_pet_path, class:"btn btn-primary" %>
   <%else%>
-    <%=link_to "Book this Pal", new_user_booking_path(pet_id: @pet.id, user_id: current_user), class:"btn btn-primary"%>
+    <%#=link_to "Book this Pal", new_user_booking_path(user_id: current_user), class:"btn btn-primary"%>
   <% end %>
   </p>
 
