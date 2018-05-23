@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+
   def home
     @pets = Pet.all
     @top = Pet.first(10)
@@ -22,6 +23,10 @@ class PetsController < ApplicationController
     authorize @pet
   end
 
+  def show
+    @pet = Pet.find(params[:id])
+    authorize @pet
+  end
   def create
     @pet = Pet.new(pet_params)
     # @pet.home_stay = @pet.home_stay.to_s == "true"

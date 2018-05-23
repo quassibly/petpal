@@ -1,6 +1,6 @@
 <h1>Update Booking</h1>
 
-<%= simple_form_for @booking do |f| %>
+<%= simple_form_for [current_user, @booking] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
 

@@ -1,6 +1,12 @@
 <h2>Pet Pal booking</h2>
+
 <%= simple_form_for [@pet,@booking] do |f| %>
+
+<div>
   <%= f.input :start_date %>
+</div>
+<div>
   <%= f.input :end_date %>
+</div>
   <%= f.submit "Book your Pet Pal now!", class: "btn btn-primary" %>
 <% end %>
