@@ -1,4 +1,4 @@
-<h2>User dashboard</h2>
+<h2>Dashboard</h2>
 
 <h3>User Bookings</h3>
 <ul>
@@ -15,3 +15,11 @@
     <% end %>
   <% end %>
 </ul>
+
+<h3>Your Pals</h3>
+<ul>
+  <% @user.pets.each do |pet| %>
+    <li><%= cl_image_tag(pet.photo, width: 150, height: 150, crop: :fill) %></li>
+  <% end %>
+</ul>
+
