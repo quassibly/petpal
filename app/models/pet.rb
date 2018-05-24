@@ -9,5 +9,12 @@ class Pet < ApplicationRecord
   validates :user_id, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :pet_search,
+    against: [ :animal_type, :breed, :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
 
