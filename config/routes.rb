@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'users/bookings/:id/confirmed', to: 'bookings#confirmation', as: 'confirm_booking'
   get 'users/bookings/cancelled', to: 'bookings#cancelled', as: 'cancelled_booking'
   get 'users/:user_id/management', to: 'users#management', as: 'pet_management'
-  root to: 'pets#index'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pets, :users do
     resources :bookings
