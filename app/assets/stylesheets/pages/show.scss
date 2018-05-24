@@ -1,0 +1,36 @@
+.pet-hero {
+  margin: auto;
+  height: 400px;
+  width: auto;
+  display: block;
+}
+
+.info {
+  margin-top: 30px;
+  width: 200px;
+  height: 100px;
+  p {
+    font-size:20px;
+    color:#333333;
+  }
+}
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+body {
+  background-color:rgb(240,240,240);
+}
+
+.pet-container {
+margin-top: 20px;
+h1{
+color:#333333;
+}
+}
+.row{
+  margin-top: 50px;
+}
+.links {
+  margin-bottom: 50px;
+}
