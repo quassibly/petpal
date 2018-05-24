@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+}
+
+#map {
+  flex: 0 0 40%;
+  height: calc( 100vh );
+  position: sticky !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+#small-map {
+  height: 50vh;
+  width: 50vh;
+}
