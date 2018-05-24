@@ -20,7 +20,7 @@ input, select {
   outline: none !important;
 }
 
-.container {
+.main-container {
   min-height: calc(100vh - 170px);
   margin-top: 60px;
   margin-bottom: 40px;
@@ -98,5 +98,3 @@ input[type="submit"] {
     padding: 1px 6px;
   }
 }
-
-// END overwriting simple form styles bc I dont know how else

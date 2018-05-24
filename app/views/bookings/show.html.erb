@@ -1,29 +1,79 @@
-<h2>Booking Info</h2>
-<div class="picture">
+<div>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+  <% end %>
+  <%= yield %>
+</div>
+
+
+<div class="pet-container">
+
+  <h2 class="title">Booking Info</h2>
+  <div class="picture">
 <!-- user info to come  -->
-  <%= cl_image_tag(@booking.pet.photo, width: 300, height:300, crop: :fill)   %>
+
+  <%= cl_image_tag(@booking.pet.photo, class: "pet-hero")   %>
 </div>
 <div>
-  <%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:
-  <p><%= @booking.start_date %></p>
-   to
-   <%= @booking.end_date %>
+  <div class="row" style="text-align:center">
+    <div class="col-sm-offset-0 col-sm-12">
+      <%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:
+    </div>
+  </div>
+  <div class="row" style="text-align:center">
+    <div class="col-sm-offset-0 col-sm-4">
+      <h3><%= @booking.start_date %></h3>
+    </div>
+    <div class="col-sm-offset-0 col-sm-4" style="text-align:center">
+      <h3>until</h3>
+    </div>
+    <div class="col-sm-4" style="text-align:center">
+      <h3><%= @booking.end_date %></h3>
+  </div>
+ </div>
 </div>
-  <h3 style="color:#FF5E3A">This booking is currently: <%= @booking.status %></h3>
+
+</div>
+  <div class="row">
+    <div class="col-sm-offset-0 col-sm-12" style="text-align:center">
+  <h3 style="color:#FF5E3A">This booking
+    <%=  @booking.status == "Accepted" ? " has been accepted!" : " is currently pending"%></h3>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-offset-0 col-sm-12" style="text-align:center">
+  <% if @booking.pet.user != current_user %>
+  <div> <h3>You can contact this Pet Pal's owner on: <%= @booking.pet.user.email %></h3>
+    <% end %>
+  </div>
+</div>
 <!-- map to come  -->
+
+<div class="row">
+<div id="small-map"; data-markers="<%= @markers.to_json %>"></div>
+
 <div class="links" style="text-align:center">
   <div class="link" style="text-align:center">
-    <% if @booking.pet.user == current_user %>
-    <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id) %>
-    <%end%>
-  </div>
-    <div class="link" style="text-align:center">
-    <%= link_to 'Edit Booking', edit_user_booking_path(user_id: current_user, pet_id: @booking.pet_id) %>
-  </div>
+    <% if @booking.pet.user == current_user && @booking.status == "pending" %>
+
+    <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), class:"btn btn-success" %>
+
+    <%= link_to 'Decline Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+
+    <% else%>
+
+  <% if @booking.status != "Accepted" %>
+    <%= link_to 'Edit Booking', edit_user_booking_path(user_id: current_user, pet_id: @booking.pet_id), class:"btn btn-warning" %>
+  <% end %>
+
+    <%= link_to 'Cancel Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+
+  <%end%>
   <div class="link">
-    <%= link_to 'Cancel Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete %>
+    <%= link_to 'Back to your dashboard', user_path(current_user), class:"btn btn-primary" %>
   </div>
-  <div class="link">
-    <%= link_to 'Back to your dashboard', user_path(current_user) %>
   </div>
 </div>
+</div>
+</div>
+

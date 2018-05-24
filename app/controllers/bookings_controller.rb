@@ -6,17 +6,21 @@ class BookingsController < ApplicationController
   end
 
   def show
-    if params[:pet_id].nil?
-    user_id = params[:user_id]
-    pet_id = params[:pet_id]
-    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
-
-  else
+    skip_authorization
+    if params[:id].nil?
     user_id = params[:user_id]
     pet_id = params[:pet_id]
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+  elsif params[:id] != nil && params[:pet_id] != nil
+    user_id = params[:user_id]
+    pet_id = params[:pet_id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+  else
+    user_id = params[:user_id]
+    pet_id = params[:id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
   end
-    skip_authorization
+
 
   end
 
@@ -35,9 +39,11 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     pet_id = params[:pet_id]
     @booking.pet_id = pet_id
-    if @booking.save
-      redirect_to user_path(current_user)
+  if @booking.save
+    flash[:success] = "Your booking has been created!"
+      redirect_to user_booking_path(user_id: current_user, id: @booking.pet_id)
     else
+      flash.now[:alert] = "Your new booking couldn't be created! Are you missing something?"
       render :new
     end
   end
@@ -53,8 +59,10 @@ class BookingsController < ApplicationController
     skip_authorization
     @booking.update(booking_params)
     if @booking.save
-      redirect_to user_path(current_user)
+    flash[:success] = "Your booking has been updated!"
+      redirect_to user_booking_path(user_id: current_user, id: @booking.pet_id)
     else
+      flash.now[:alert] = "Your new booking couldn't be updated! Are you missing something?"
       render :new
     end
   end
@@ -65,7 +73,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
     skip_authorization
     @booking.destroy
-    redirect_to user_path(current_user)
+    redirect_to cancelled_booking_path
   end
 
 
@@ -77,6 +85,15 @@ class BookingsController < ApplicationController
     @booking.status = "Accepted"
     @booking.save
     redirect_to user_booking_path(id: pet_id, user_id: user_id)
+  end
+
+  def cancelled
+    skip_authorization
+  end
+
+  def confirmation
+    @booking = Booking.find(params[:id])
+    skip_authorization
   end
   
   private
