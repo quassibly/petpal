@@ -13,6 +13,16 @@ class PetsController < ApplicationController
     if params[:query].present?
       @pets = @pets.pet_search(params[:query])
     end
+    if params[:location].present?
+      @pets = @pets.near(params[:location], 10)
+    end
+    @pets = @pets.where.not(latitude:nil, longitude: nil)
+    @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+      }
+    end
   end
 
   def filter_by
