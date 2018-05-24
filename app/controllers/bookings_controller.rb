@@ -69,7 +69,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
     skip_authorization
     @booking.destroy
-    redirect_to user_path(current_user)
+    redirect_to cancelled_booking_path
   end
 
 
@@ -81,6 +81,10 @@ class BookingsController < ApplicationController
     @booking.status = "Accepted"
     @booking.save
     redirect_to user_booking_path(id: pet_id, user_id: user_id)
+  end
+
+  def cancelled
+    skip_authorization
   end
 
   def confirmation

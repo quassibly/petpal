@@ -5,7 +5,11 @@ class UsersController < ApplicationController
     authorize @user
   end
 
- # def edit
+def management
+
+  @pets = Pet.where(user_id: current_user)
+  authorize @pets
+end
   #  @booking = Booking.find(params[:id])
  #   @user = current_user
  # end
