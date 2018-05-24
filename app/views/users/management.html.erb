@@ -14,8 +14,6 @@
           </div>
           <p class="text-sm">
           Booker: <%= booking.user.name %></p>
-          <p>Start: <%= booking.start_date %></p>
-          <p>End Date: <%= booking.end_date %></p>
           <% if booking.status == "pending" %>
            <p style="color:orange"><%= booking.status %></p>
           <% elsif booking.status == "Accepted" %>
