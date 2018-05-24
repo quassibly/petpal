@@ -1,7 +1,6 @@
-<div class="container">
-
   <div class="row">
     <div class="col-xs-12 main-form">
+
       <%= form_tag pets_path, method: :get do %>
         <%= select_tag(:animal_type, options_for_select(["", "Dog", "Cat", "Other"])) %>
         <%= text_field_tag :query,
@@ -15,6 +14,7 @@
           placeholder: "Location"
         %>
         <%= submit_tag("Search")%>
+
       <% end %>
       </div>
     </div>
@@ -35,4 +35,3 @@
       <% end %>
     </div>
   </div>
-

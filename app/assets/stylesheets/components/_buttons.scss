@@ -1,0 +1,15 @@
+.btn-pp {
+    background-color: #fff !important;
+    height: 40px;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 4px !important;
+    color: grey;
+  }
+  .btn-pp-default {
+    &:hover {
+      background-color: rgba(255, 127, 80 ,0.05) !important;
+      // color: #fff;
+    }
+}
