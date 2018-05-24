@@ -1,11 +1,11 @@
-<div class="container">
-
   <div class="row">
     <div class="col-xs-12 main-form">
       <%= simple_form_for(@pet) do |f| %>
       <%= f.input_field :animal_type, collection: ["dog", "cat", "mythical", "other"]  %>
       <%= f.input_field :location %>
-      <%= f.submit "search pets" %>
+      <!-- <div class="tt"> -->
+        <%= f.submit "search pets" %>
+      <!-- </div> -->
       <% end %>
     </div>
   </div>
@@ -25,5 +25,3 @@
       <% end %>
     <% end %>
   </div>
-</div>
-

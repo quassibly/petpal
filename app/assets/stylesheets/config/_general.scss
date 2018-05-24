@@ -16,22 +16,58 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 0 !important;
 }
 
+input, select {
+  outline: none !important;
+}
+
 .container {
   min-height: calc(100vh - 170px);
   margin-top: 60px;
   margin-bottom: 40px;
 }
 
+// BEGINING overwriting simple form styles bc I dont know how else VV
 .simple-form {
   padding: 0 10px;
+}
+
+
+.form-check {
+  display: inline-flex;
+}
+
+.form-check label {
+  padding-right: 14px;
+  padding-left: 6px;
 }
 
 .main-form form {
   display: flex;
 }
 
-.new_pet {
+input[type="submit"] {
+  background-color: #fff !important;
+  height: 40px;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 4px !important;
+  color: rgba(0,0,0,0.7);
+  &:hover {
+    background-color: rgba(255,165,0 ,0.1) !important;
+    box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.05);
+    border-color: rgba(255,165,0 ,0.15) !important;
+  }
+  &:active {
+    background-color: rgba(255,165,0 ,0.3) !important;
+    box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.2);
+    outline: none !important;
+  }
+}
 
+// END overwriting simple form styles bc I dont know how else
+
+.new_pet {
   select, input[type="text"] {
     background-color: #fff !important;
     height: 40px;
@@ -40,20 +76,8 @@ h1, h2, h3, h4, h5 {
     margin-right: 8px !important;
     padding: 1px 6px;
   }
-  input[type="submit"] {
-    background-color: #fff !important;
-    height: 40px;
-    border: 1px solid rgba(0,0,0,0.1) !important;
-    padding-left: 14px;
-    padding-right: 14px;
-    border-radius: 4px !important;
-    color: grey;
-    &:hover {
-      background-color: rgba(0,0,0,0.05) !important;
-      // color: #fff;
-    }
-  }
 }
+
 
 .text {
   &-xs {
