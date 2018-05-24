@@ -1,4 +1,10 @@
 // Specific CSS for your home-page
+body {
+  margin: 0;
+}
+.main-container {
+  height: 100vh;
+}
 .banner {
   color: white;
   text-align: center;
@@ -21,3 +27,5 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+
+
