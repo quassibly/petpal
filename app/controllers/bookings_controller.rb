@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
     pet_id = params[:pet_id]
     @booking.pet_id = pet_id
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to confirm_booking_path(@booking)
     else
       render :new
     end
@@ -77,7 +77,11 @@ class BookingsController < ApplicationController
     @booking.status = "Accepted"
     @booking.save
     redirect_to user_booking_path(id: pet_id, user_id: user_id)
+  end
 
+  def confirmation
+    @booking = Booking.find(params[:id])
+  skip_authorization
   end
   private
 
