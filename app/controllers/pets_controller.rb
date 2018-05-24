@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_action :pet_scope, only: [:index]
 
   def home
     @pets = Pet.all
@@ -6,8 +7,12 @@ class PetsController < ApplicationController
   end
 
   def index
-    @pets = policy_scope(Pet)
-    @pet = Pet.new
+    if params[:animal_type].present?
+      @pets = @pets.where(animal_type: params[:animal_type])
+    end
+    if params[:query].present?
+      @pets = @pets.pet_search(params[:query])
+    end
   end
 
   def filter_by
@@ -65,5 +70,9 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :animal_type, :breed, :take_away, :home_stay, :age, :photo, :photo_cache, :location, :description, :adopatable)
+  end
+
+  def pet_scope
+    @pets = policy_scope(Pet)
   end
 end
