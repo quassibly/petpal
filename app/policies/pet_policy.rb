@@ -11,6 +11,10 @@ class PetPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def management?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all

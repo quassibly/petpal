@@ -29,7 +29,7 @@
 
       <% if user_signed_in? %>
         <li class="menu-item-nav-pp">
-            <%= link_to "Manage pets", user_path(current_user), class: "menu-link-nav-pp" %>
+            <%= link_to "Manage pets", pet_management_path(current_user), class: "menu-link-nav-pp" %>
         </li>
       <% end %>
 
