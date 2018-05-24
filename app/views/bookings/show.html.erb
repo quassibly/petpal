@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Booking Info</h2>
 <div class="picture">
 <!-- user info to come  -->
@@ -10,20 +11,27 @@
    <%= @booking.end_date %>
 </div>
   <h3 style="color:#FF5E3A">This booking is currently: <%= @booking.status %></h3>
+  </div>
 <!-- map to come  -->
-<div class="links" style="text-align:center">
+
+<div class="links" style="text-align:center padding-bottom:50px">
   <div class="link" style="text-align:center">
-    <% if @booking.pet.user == current_user %>
-    <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id) %>
-    <%end%>
-  </div>
-    <div class="link" style="text-align:center">
-    <%= link_to 'Edit Booking', edit_user_booking_path(user_id: current_user, pet_id: @booking.pet_id) %>
-  </div>
+    <% if @booking.pet.user == current_user && @booking.status == "pending" %>
+
+    <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), class:"btn btn-success" %>
+
+    <%= link_to 'Decline Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+
+    <% else%>
+
+
+    <%= link_to 'Edit Booking', edit_user_booking_path(user_id: current_user, pet_id: @booking.pet_id), class:"btn btn-warning" %>
+
+
+    <%= link_to 'Cancel Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+
+  <%end%>
   <div class="link">
-    <%= link_to 'Cancel Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete %>
-  </div>
-  <div class="link">
-    <%= link_to 'Back to your dashboard', user_path(current_user) %>
+    <%= link_to 'Back to your dashboard', user_path(current_user), class:"btn btn-primary" %>
   </div>
 </div>

@@ -1,3 +1,17 @@
 <h1>BOOKING CONFIRMED!</h1>
 
 <h2>You have booked <%= @booking.pet.name %></h2>
+
+<h3>You will be playing with your new pet pal on these dates. <%= @booking.start_date %> <%= @booking.end_date %>  </h3>
+
+<% if @booking.pet.home_stay %>
+  <p> Come to this pet pals home and play!</p>
+<% end %>
+
+<% if @booking.pet.take_away %>
+  <p> This pet can be brought to your own home if you would like </p>
+<% end %>
+<%= link_to 'Book another pet pal', pets_path, class:"btn btn-primary" %>
+<%= link_to 'Dashboard', user_path(current_user), class:"btn btn-primary" %>
+<%= link_to 'Booking information', user_booking_path(pet_id: @booking.pet_id, user_id: @booking.user_id), class:"btn btn-primary" %>
+

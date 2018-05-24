@@ -8,17 +8,21 @@ class BookingsController < ApplicationController
   end
 
   def show
-    if params[:pet_id].nil?
-    user_id = params[:user_id]
-    pet_id = params[:pet_id]
-    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
-
-  else
+    skip_authorization
+    if params[:id].nil?
     user_id = params[:user_id]
     pet_id = params[:pet_id]
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+  elsif params[:id] != nil && params[:pet_id] != nil
+    user_id = params[:user_id]
+    pet_id = params[:pet_id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+  else
+    user_id = params[:user_id]
+    pet_id = params[:id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
   end
-    skip_authorization
+
 
   end
 
