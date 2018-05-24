@@ -19,6 +19,7 @@
   <div> <h3>You can contact this Pet Pal's owner on: <%= @booking.pet.user.email %></h3>
     <% end %>
 <!-- map to come  -->
+<div id="small-map"; data-markers="<%= @markers.to_json %>"></div>
 
 <div class="links" style="text-align:center">
   <div class="link" style="text-align:center">
@@ -41,3 +42,4 @@
     <%= link_to 'Back to your dashboard', user_path(current_user), class:"btn btn-primary" %>
   </div>
 </div>
+
