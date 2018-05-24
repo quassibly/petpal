@@ -1,5 +1,4 @@
-<div class= "container" style="text-align:center">
-  <h2>Booking Info</h2>
+<h2>Booking Info</h2>
 <div class="picture">
 <!-- user info to come  -->
   <%= cl_image_tag(@booking.pet.photo, width: 300, height:300, crop: :fill)   %>
@@ -26,5 +25,3 @@
   <div class="link">
     <%= link_to 'Cancel Booking', user_booking_path(@booking), method: :delete %>
   </div>
-</div>
-<% raise %>
