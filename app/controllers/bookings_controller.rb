@@ -8,17 +8,21 @@ class BookingsController < ApplicationController
   end
 
   def show
-    if params[:pet_id].nil?
-    user_id = params[:user_id]
-    pet_id = params[:pet_id]
-    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
-
-  else
+    skip_authorization
+    if params[:id].nil?
     user_id = params[:user_id]
     pet_id = params[:pet_id]
     @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+  elsif params[:id] != nil && params[:pet_id] != nil
+    user_id = params[:user_id]
+    pet_id = params[:pet_id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
+  else
+    user_id = params[:user_id]
+    pet_id = params[:id]
+    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id)
   end
-    skip_authorization
+
 
   end
 
@@ -35,7 +39,7 @@ class BookingsController < ApplicationController
     pet_id = params[:pet_id]
     @booking.pet_id = pet_id
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to confirm_booking_path(@booking)
     else
       render :new
     end
@@ -77,7 +81,11 @@ class BookingsController < ApplicationController
     @booking.status = "Accepted"
     @booking.save
     redirect_to user_booking_path(id: pet_id, user_id: user_id)
+  end
 
+  def confirmation
+    @booking = Booking.find(params[:id])
+  skip_authorization
   end
   private
 
