@@ -14,9 +14,14 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+
+    <% unless controller_name == "pages" %>
+
     <%= render "shared/flashes" %>
+
     <%= render "shared/navbar" %>
-    <div class="container">
+    <% end %>
+    <div class="main-container">
         <%= yield %>
     </div>
     <%= render "shared/footer" %>
