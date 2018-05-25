@@ -1,8 +1,11 @@
-<!--   <h2>User dashboard - <%= @user.name %></h2> -->
+<br>
+<h2>User dashboard - <%= @user.name %></h2>
+<br>
+<h3>Your Pet Pal Bookings</h3>
+<br>
 
-  <h2>Your Pet Pal Bookings</h2>
-  <div class="row card-container">
-   <% @user.bookings.each do |booking| %>
+<div class="row card-container">
+  <% @user.bookings.each do |booking| %>
    <div class="col-xs-6 col-md-3">
     <div class="card">
       <%= link_to user_booking_path(user_id: current_user, pet_id: booking.pet_id) do %>
@@ -26,5 +29,4 @@
    </div>
    <% end %>
  </div>
-
 
