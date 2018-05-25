@@ -1,10 +1,11 @@
-  <br>
-  <h2>User dashboard - <%= @user.name %></h2>
 <br>
-  <h3>Your Pet Pal Bookings</h3>
-  <br>
-  <div class="row card-container">
-   <% @user.bookings.each do |booking| %>
+<h2>User dashboard - <%= @user.name %></h2>
+<br>
+<h3>Your Pet Pal Bookings</h3>
+<br>
+
+<div class="row card-container">
+  <% @user.bookings.each do |booking| %>
    <div class="col-xs-6 col-md-3">
     <div class="card">
       <div class="card-image" style="height: 230px; width: 432px; ; background-image: url('<%= booking.pet.photo %>')"></div>
