@@ -1,3 +1,16 @@
+.show-container {
+  display: flex;
+  height: calc( 100vh - 170px );
+}
+
+.pet-side {
+  margin-right: 0 !important;
+  height: calc( 100vh - 170px );
+  width: auto;
+  overflow: hidden;
+  display: block;
+}
+
 .pet-hero {
   margin: auto;
   height: 400px;
