@@ -26,6 +26,6 @@ Pet.create(name: "Kinkaid", animal_type: "Dog", breed: "Golden Retriever", age: 
 
 Booking.create(pet_id: 2, user_id: 1, start_date: 20180601, end_date: 20180602 )
 Booking.create(pet_id: 5, user_id: 1, start_date: 20180605, end_date: 20180607 )
-Booking.create(pet_id: 6, user_id: 2, start_date: 20180710, end_date: 20180711 )
-Booking.create(pet_id: 9, user_id: 4, start_date: 20180106, end_date: 20180202 )
-Booking.create(pet_id: 1, user_id: 3, start_date: 20180106, end_date: 20180202 )
+Booking.create(pet_id: 6, user_id: 2, start_date: 20180615, end_date: 20180617 )
+Booking.create(pet_id: 9, user_id: 4, start_date: 20180710, end_date: 20180713 )
+Booking.create(pet_id: 1, user_id: 3, start_date: 20180720, end_date: 20180721 )
