@@ -1,49 +1,48 @@
 <div class="show-container">
-  <h1 style="text-align:center">Your Pal <%= @pet.name %></h1>
-  <div class =""><%= cl_image_tag(@pet.photo, class:"pet-side") %>
+  <div class ="pet-side" style="background-image: url(<%= @pet.photo %>)">
   </div>
-      <div class="row" style="text-align:center">
+
+  <div class="row pet-info">
+    <div class="stats">
+      <h1>Your Pal <%= @pet.name %></h1>
+      <div class="top-margin">
         <h3>Pal information</h3>
-      </div>
-      <div class="row">
-        <div class="col-sm-offset-0 col-sm-3">
-          <p>Age: <%= @pet.age %></p>
-        </div>
-        <div class="col-sm-3">
-          <p>Description: <%= @pet.description %></p>
-        </div>
-        <div class="col-sm-3">
+        <p>Age: <%= @pet.age %></p>
+        <p>Description: <%= @pet.description %></p>
+        <div>
           <% if @pet.breed.nil? %>
-            <p> Animal Type: <%= @pet.animal_type %> : <%= @pet.breed %></p></div>
+          <p> Animal Type: <%= @pet.animal_type %> : <%= @pet.breed %></p>
           <% else %>
-            <p>Animal Type: <%= @pet.animal_type %></p>
+          <p>Animal Type: <%= @pet.animal_type %></p>
           <% end %>
         </div>
-        <div class="col-sm-3">
-          <p style="text-align:center">Pet address: <%= @pet.location %></p>
+      </div>
+      <p>Pet address: <%= @pet.location %></p>
+      <div class="top-margin">
+        <h3 style="text-align: center">Where can I spend time with my pet pal?</h3>
+        <div class="row">
+          <div class="col-xs-6" style="text-align: center">
+            <p><%= @pet.take_away == true ? "You can take this pet home!": "This pet cannot be taken from its natural habitat"%>
+            </p>
+          </div>
+          <div class="col-xs-6" style="text-align: center">
+            <p><%= @pet.home_stay == true ? "You can come visit this pet at its home!" : "You are not able to come visit this pets home" %></p>
+          </div>
         </div>
       </div>
-      <div class="row" style="text-align:center">
-        <div class="col-sm-12"><h3>Where can I spend time with my pet pal?</h3></div>
-      <div class="row">
-        <div class="col-sm-offset-0 col-sm-4">
-          <p><%= @pet.take_away == true ? "You can take this pet home!" : "This pet cannot be taken from its natural habitat"%></p>
-        </div>
-        <div class="col-sm-offset-4 col-sm-4">
-          <p><%= @pet.home_stay == true ? "You can come visit this pet at its home!" : "You are not able to come visit this pets home" %></p>
-        </div>
-      </div>
-       <div class="row links" style="margin-top:50px">
-        <div class="col-sm-offset-0 col-sm-6">
-          <% if @pet.user == current_user %>
-            <%= link_to "Edit Pal", edit_pet_path, class:"btn btn-primary" %>
-          <%else%>
-            <%=link_to "Book this Pal", new_pet_booking_path(user_id: current_user, pet_id: @pet.id), class:"btn btn-primary"%>
-          <% end %>
-        </div>
-        <div class="col-sm-6">
-          <%= link_to 'Return to Pet Pals', pets_path, class:"btn btn-success" %>
-        </div>
     </div>
-</div>
+    <div class="row links" style="margin-top:50px">
+      <div>
+        <% if @pet.user == current_user %>
+        <%= link_to "Edit Pal", edit_pet_path, class:"btn btn-primary" %>
+        <%else%>
+        <%=link_to "Book this Pal", new_pet_booking_path(user_id: current_user, pet_id: @pet.id), class:"btn btn-primary"%>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to 'Return to Pet Pals', pets_path, class:"btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
