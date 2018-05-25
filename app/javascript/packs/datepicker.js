@@ -4,3 +4,5 @@ import flatpickr from "flatpickr";
 flatpickr("#flatpickr",{
     mode: "range"
 });
+
+export { flatpickr }
