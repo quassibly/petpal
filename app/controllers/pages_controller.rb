@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
   def home
-    @pets = Pet.first(4)
+    @pets = Pet.first(8)
   end
 end
