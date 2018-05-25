@@ -50,8 +50,10 @@
 <!-- map to come  -->
 
 <div class="row">
-<div id="small-map"; data-markers="<%= @markers.to_json %>"></div>
-
+  <div class="col-sm-offset-0 col-sm-12" style="text-align:center">
+    <div id="small-map"; data-markers="<%= @markers.to_json %>"></div>
+  </div>
+</div>
 <div class="links" style="text-align:center">
   <div class="link" style="text-align:center">
     <% if @booking.pet.user == current_user && @booking.status == "pending" %>

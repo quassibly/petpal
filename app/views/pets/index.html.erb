@@ -1,8 +1,7 @@
   <div class="row">
     <div class="col-xs-12 main-form">
-
+    <br>
       <%= form_tag pets_path, method: :get do %>
-        <%= select_tag(:animal_type, options_for_select(["", "Dog", "Cat", "Other"])) %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
