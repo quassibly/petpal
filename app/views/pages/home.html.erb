@@ -1,7 +1,38 @@
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-  We want to display here:
-  <ul>
-    <li>cards of animals - how do we display them all here in the root?</li>
-    <li>trending?</li>
-  </ul>
+<div class="banner" style="background-image: linear-gradient(115.7914458858877deg, rgba(250, 247, 245,0.4) 8.74405705229794%,rgba(226, 210, 196,0.4) 89.09270998415212%), url(<%= image_path('banner_homepage.jpg') %>);">
+  <div class="banner-content">
+    <h1>Book a PetPal</h1>
+    <div class="row">
+      <div class="col-xs-12 main-form">
+
+        <%= form_tag pets_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control"%>
+          <%= submit_tag("Find your Pal")%>
+
+            <% end %>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+<div class="featured-container">
+  <h2>Featured Pals</h2>
+
+<% @pets.each do |pet| %>
+      <%= link_to pet_path(pet.id) do %>
+      <div class="col-xs-6 col-md-4">
+        <div class="card">
+          <div class="card-image" style="height: 200px; width: 200px; background-image: url(<%= pet.photo %>)"></div>
+          <div class="card-heading">
+            <p class="card-heading-item text-md"><%= pet.name %></p> <p class="card-heading-item text-sm"><%= pet.age %></p>
+          </div>
+          <!-- pet.location to be added instead placeholder! -->
+          <p class="text-sm" style="text-align:center"><%= pet.location %></p>
+        </div>
+      </div>
+      <% end %>
+
+      <% end %>
+    </div>
