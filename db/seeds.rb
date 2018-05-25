@@ -24,7 +24,7 @@ Pet.create(name: "Remington", animal_type: "Dog", breed: "Dalmatian", age: 2, ho
 Pet.create(name: "Bullet", animal_type: "Dog", breed: "Golden Retriever", age: 6, take_away: true, user_id: 3, location: "Mengstraße 4, 23552 Lübeck", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242468/Golden_with_mane.jpg")
 Pet.create(name: "Kinkaid", animal_type: "Dog", breed: "Golden Retriever", age: 3, home_stay: true, take_away: true, user_id: 4, location:"Linienstraße 130, 10115 Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527080564/a0lskfz9nnjyfib6oeah.jpg")
 
-Booking.create(pet_id: 2, user_id: 1, start_date: 20180601, end_date: 20180602 )
+Booking.create(pet_id: 2, user_id: 1, start_date: 20180601, end_date: 20180620 )
 Booking.create(pet_id: 5, user_id: 1, start_date: 20180605, end_date: 20180607 )
 Booking.create(pet_id: 6, user_id: 2, start_date: 20180615, end_date: 20180617 )
 Booking.create(pet_id: 9, user_id: 4, start_date: 20180710, end_date: 20180713 )
