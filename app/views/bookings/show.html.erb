@@ -5,77 +5,45 @@
   <%= yield %>
 </div>
 
+<div class="show-container">
+  <div class ="pet-side" style="background-image: url(<%= @booking.pet.photo %>)">
+  </div>
+  <div class="row pet-info">
+    <div class="stats">
+      <h1>Booking Info</h1>
+      <div class="top-margin">
+        <h3><%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:</h3>
+        <h3><%= @booking.start_date %></h3>
+        <h3>until</h3>
+        <h3><%= @booking.end_date %></h3>
 
-<div class="pet-container">
+        <h3 style="color:#FF5E3A">This booking
+          <%=  @booking.status == "Accepted" ? " has been accepted!" : " is currently pending"%></h3>
+        <% if @booking.pet.user != current_user %>
+          <h3>You can contact this Pet Pal's owner on: <%= @booking.pet.user.email %></h3>
+        <% end %>
+    </div>
+    <div class="links" style="text-align:center">
+      <div class="link" style="text-align:center">
+        <% if @booking.pet.user == current_user && @booking.status == "pending" %>
 
-  <h2 class="title">Booking Info</h2>
-  <div class="picture">
-<!-- user info to come  -->
+        <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), class:"btn btn-success" %>
 
-  <%= cl_image_tag(@booking.pet.photo, class: "pet-hero")   %>
-</div>
-<div>
-  <div class="row" style="text-align:center">
-    <div class="col-sm-offset-0 col-sm-12">
-      <%= @booking.user.name%> has booked <%= @booking.pet.name%> for the dates:
+        <%= link_to 'Decline Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+
+        <% else%>
+
+      <% if @booking.status != "Accepted" %>
+        <%= link_to 'Edit Booking', edit_user_booking_path(user_id: current_user, pet_id: @booking.pet_id), class:"btn btn-warning" %>
+      <% end %>
+
+        <%= link_to 'Cancel Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+
+      <%end%>
+        <div class="link">
+          <%= link_to 'Back to your dashboard', user_path(current_user), class:"btn btn-primary" %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row" style="text-align:center">
-    <div class="col-sm-offset-0 col-sm-4">
-      <h3><%= @booking.start_date %></h3>
-    </div>
-    <div class="col-sm-offset-0 col-sm-4" style="text-align:center">
-      <h3>until</h3>
-    </div>
-    <div class="col-sm-4" style="text-align:center">
-      <h3><%= @booking.end_date %></h3>
-  </div>
- </div>
 </div>
-
-</div>
-  <div class="row">
-    <div class="col-sm-offset-0 col-sm-12" style="text-align:center">
-  <h3 style="color:#FF5E3A">This booking
-    <%=  @booking.status == "Accepted" ? " has been accepted!" : " is currently pending"%></h3>
-  </div>
-</div>
-<div class="row">
-    <div class="col-sm-offset-0 col-sm-12" style="text-align:center">
-  <% if @booking.pet.user != current_user %>
-  <div> <h3>You can contact this Pet Pal's owner on: <%= @booking.pet.user.email %></h3>
-    <% end %>
-  </div>
-</div>
-<!-- map to come  -->
-
-<div class="row">
-  <div class="col-sm-offset-0 col-sm-12" style="text-align:center">
-    <div id="small-map"; data-markers="<%= @markers.to_json %>"></div>
-  </div>
-</div>
-<div class="links" style="text-align:center">
-  <div class="link" style="text-align:center">
-    <% if @booking.pet.user == current_user && @booking.status == "pending" %>
-
-    <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), class:"btn btn-success" %>
-
-    <%= link_to 'Decline Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
-
-    <% else%>
-
-  <% if @booking.status != "Accepted" %>
-    <%= link_to 'Edit Booking', edit_user_booking_path(user_id: current_user, pet_id: @booking.pet_id), class:"btn btn-warning" %>
-  <% end %>
-
-    <%= link_to 'Cancel Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
-
-  <%end%>
-  <div class="link">
-    <%= link_to 'Back to your dashboard', user_path(current_user), class:"btn btn-primary" %>
-  </div>
-  </div>
-</div>
-</div>
-</div>
-
