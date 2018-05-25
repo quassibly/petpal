@@ -23,13 +23,13 @@
           <h3>You can contact this Pet Pal's owner on: <%= @booking.pet.user.email %></h3>
         <% end %>
     </div>
-    <div class="links" style="text-align:center">
-      <div class="link" style="text-align:center">
+    <div class="links" style=" width:100%; padding-top: 40px;">
+      <div class="link" style="text-align:center; display: flex; justify-content: space-between;">
         <% if @booking.pet.user == current_user && @booking.status == "pending" %>
 
         <%= link_to 'Accept Booking', accept_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), class:"btn btn-success" %>
 
-        <%= link_to 'Decline Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger" %>
+        <%= link_to 'Decline Booking', user_booking_path(user_id: @booking.user_id, pet_id: @booking.pet_id), method: :delete, class:"btn btn-danger", style:"margin-left: 16px; margin-right: 16px;" %>
 
         <% else%>
 
