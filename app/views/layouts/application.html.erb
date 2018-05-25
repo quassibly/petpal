@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_orange.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
@@ -20,8 +21,8 @@
     <%= render "shared/flashes" %>
 
     <%= render "shared/navbar" %>
-    <% end %>
-    <div class="main-container">
+    <div class="container-pp">
+
         <%= yield %>
     </div>
     <%= render "shared/footer" %>
