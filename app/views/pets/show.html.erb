@@ -19,16 +19,9 @@
       </div>
       <p>Pet address: <%= @pet.location %></p>
       <div class="top-margin">
-        <h3 style="text-align: center">Where can I spend time with my pet pal?</h3>
-        <div class="row">
-          <div class="col-xs-6" style="text-align: center">
-            <p><%= @pet.take_away == true ? "You can take this pet home!": "This pet cannot be taken from its natural habitat"%>
-            </p>
-          </div>
-          <div class="col-xs-6" style="text-align: center">
-            <p><%= @pet.home_stay == true ? "You can come visit this pet at its home!" : "You are not able to come visit this pets home" %></p>
-          </div>
-        </div>
+        <h3>Where can I spend time with my pet pal?</h3>
+          <p><%= @pet.take_away == true ? "You can take this pet home!": "This pet cannot be taken from its natural habitat"%></p>
+          <p><%= @pet.home_stay == true ? "You can come visit this pet at its home!" : "You are not able to come visit this pets home" %></p>
       </div>
     </div>
     <div class="row links" style="margin-top:50px">

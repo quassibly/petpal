@@ -1,11 +1,7 @@
-<br>
-<h2>User dashboard - <%= @user.name %></h2>
-<br>
-<h3>Your Pet Pal Bookings</h3>
-<br>
-
-
 <div class="featured-container">
+  <h1 class="user-dash-title">User dashboard - <%= @user.name %></h1>
+
+  <h2 class="user-dash-subtitle">Your Pet Pal Bookings</h2>
   <div class="container">
     <div class="row">
         <% @user.bookings.each do |booking| %>
@@ -17,9 +13,9 @@
                 <p class="card-heading-item text-md"><%= booking.pet.name %></p>
               </div>
               <!-- pet.location to be added instead placeholder! -->
-              <p class="card-subheading text-xs"><%= booking.pet.location %></p>
-              <p>Start: <%= booking.start_date %></p>
-              <p>End: <%= booking.end_date %></p>
+              <!-- <p class="card-subheading text-xs"><%= booking.pet.location %></p> -->
+              <p class="card-subheading text-xs">Start: <%= booking.start_date %></p>
+              <p class="card-subheading text-xs">End: <%= booking.end_date %></p>
               <% if booking.status == "pending" %>
                 <p style="color:orange"><%= booking.status %></p>
               <% elsif booking.status == "Accepted" %>
@@ -29,7 +25,7 @@
               <% end %>
             </div>
           </div>
-      <% end %>
+          <% end %>
        <% end %>
     </div>
   </div>
