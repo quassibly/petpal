@@ -20,17 +20,40 @@ input, select {
   outline: none !important;
 }
 
-.container {
+.main-container {
   min-height: calc(100vh - 170px);
   margin-top: 60px;
   margin-bottom: 40px;
 }
 
+.text {
+  &-xs {
+    font-size: 16px;
+  }
+  &-sm {
+    font-size: 18px;
+  }
+  &-md {
+    font-size: 20px;
+  }
+  &-xl {
+    font-size: 32px;
+  }
+  &-xxl {
+    font-size: 44px;
+  }
+}
+
+// overwriting flatpickr month to make ir look better
+.flatpickr-current-month {
+  font-size: 115% !important;
+}
+
+
 // BEGINING overwriting simple form styles bc I dont know how else VV
 .simple-form {
   padding: 0 10px;
 }
-
 
 .form-check {
   display: inline-flex;
@@ -65,8 +88,6 @@ input[type="submit"] {
   }
 }
 
-// END overwriting simple form styles bc I dont know how else
-
 .new_pet {
   select, input[type="text"] {
     background-color: #fff !important;
@@ -75,24 +96,5 @@ input[type="submit"] {
     border-radius: 4px !important;
     margin-right: 8px !important;
     padding: 1px 6px;
-  }
-}
-
-
-.text {
-  &-xs {
-    font-size: 16px;
-  }
-  &-sm {
-    font-size: 18px;
-  }
-  &-md {
-    font-size: 20px;
-  }
-  &-xl {
-    font-size: 32px;
-  }
-  &-xxl {
-    font-size: 44px;
   }
 }

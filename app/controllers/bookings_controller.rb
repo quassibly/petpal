@@ -3,8 +3,6 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(:user_id == current_user)
     @bookings = policy_scope(Booking)
-
-
   end
 
   def show
@@ -34,21 +32,25 @@ class BookingsController < ApplicationController
 
   def create
     skip_authorization
-    @booking = Booking.new(booking_params)
+    # getting input from the form which is not simple_form_for
+    booking_date_str = booking_params[:booking_date]
+    booking_date = booking_date_str.split(" to ")
+    @booking = Booking.new(start_date: booking_date[0], end_date: booking_date[1])
     @booking.user_id = current_user.id
     pet_id = params[:pet_id]
     @booking.pet_id = pet_id
-    if @booking.save
-      redirect_to confirm_booking_path(@booking)
+  if @booking.save
+    flash[:success] = "Your booking has been created!"
+      redirect_to user_booking_path(user_id: current_user, id: @booking.pet_id)
     else
+      flash.now[:alert] = "Your new booking couldn't be created! Are you missing something?"
       render :new
     end
   end
 
   def edit
-    user_id = params[:user_id]
     pet_id = params[:pet_id]
-    @booking = Booking.find_by(user_id: user_id, pet_id: pet_id )
+    @booking = Booking.find_by(user_id: current_user.id, pet_id: pet_id )
     skip_authorization
   end
 
@@ -57,8 +59,10 @@ class BookingsController < ApplicationController
     skip_authorization
     @booking.update(booking_params)
     if @booking.save
-      redirect_to user_path(current_user)
+    flash[:success] = "Your booking has been updated!"
+      redirect_to user_booking_path(user_id: current_user, id: @booking.pet_id)
     else
+      flash.now[:alert] = "Your new booking couldn't be updated! Are you missing something?"
       render :new
     end
   end
@@ -89,12 +93,14 @@ class BookingsController < ApplicationController
 
   def confirmation
     @booking = Booking.find(params[:id])
-  skip_authorization
+    skip_authorization
   end
+  
   private
 
+  # sanitizer params coming via form
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :pet_id)
+    params.require(:booking).permit(:booking_date)
   end
 
 end
