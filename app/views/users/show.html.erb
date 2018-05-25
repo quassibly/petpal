@@ -5,7 +5,7 @@
    <% @user.bookings.each do |booking| %>
    <div class="col-xs-6 col-md-3">
     <div class="card">
-      <div class="card-image" style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= booking.pet.photo %>')"></div>
+      <div class="card-image" style="height: 230px; width: 432px; ; background-image: url('<%= booking.pet.photo %>')"></div>
       <div class="card-heading">
         <p class="card-heading-item text-md"><%= link_to booking.pet.name, user_booking_path(user_id: current_user, pet_id: booking.pet_id) %></p>
       </div>
