@@ -9,17 +9,34 @@ body {
   color: white;
   text-align: center;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  align-items: center;
   justify-content: center;
+  background-image: linear-gradient(rgba(250, 247, 245,0.2),rgba(226, 210, 196,0.1)),
 }
-.banner h1 {
-  font-size: 50px;
-  font-weight: bold;
+
+.banner-heading {
+  margin-bottom: 10px;
+  font-weight: 600;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 12px 20px;
+  font-size: 60px;
+}
+
+.banner-subheading {
+  font-weight: 300;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.banner-content {
+    margin-top: 50vh;
+}
+
+.banner-form form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 .banner p {
   font-size: 25px;
@@ -30,9 +47,13 @@ body {
 }
 
 .featured-container {
-  margin-top: 50px;
-  margin-left: 50px;
+  padding: 20px 60px 60px;
   height: 300px;
+  height: auto;
 }
 
-
+.featured-heading {
+    margin-bottom: 20px !important;
+    margin-top: 40px !important;
+    padding-left: 15px;
+}

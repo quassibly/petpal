@@ -5,6 +5,48 @@
   display: block;
 }
 
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 20px;
+  border: solid rgba(0,0,0,0.1) 0px;
+  border-radius: 6px;
+  min-height: 360px;
+  margin: 15px 0;
+  background-color: #fff;
+  &:hover {
+    box-shadow: 0 2px 7px 0 rgba(0,0,0,0.15);
+  }
+  &-image {
+    height: 180px;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    // transform: rotate(-8deg);
+    // position: absolute;
+  }
+  &-heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 10px;
+    color: rgba(0,0,0,0.9);
+    &-item {
+      padding: 0 10px;
+    }
+  }
+  &-subheading {
+    text-align: center;
+    color: silver;
+    font-weight: 300;
+    padding: 0 20px;
+  }
+}
+
 .info {
   margin-top: 30px;
   width: 200px;
@@ -22,26 +64,3 @@ body {
   background-color:rgb(240,240,240);
 }
 
-.pet-container {
-margin-top: 20px;
-h1{
-color:#333333;
-}
-}
-.row{
-  margin-top: 50px;
-}
-.links {
-  margin-bottom: 50px;
-}
-
-.title {
-  padding-bottom: 50px;
-  text-align: center;
-}
-.btn {
-  height:auto;
-  width: auto;
-  margin: 20px;
-  border-radius:5px;
-}

@@ -13,3 +13,23 @@
       // color: #fff;
     }
 }
+
+input[type="submit"] {
+  background-color: darkorange !important;
+  height: 40px;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 4px !important;
+  color: white;
+  &:hover {
+    background-color: rgba(255,165,0 ,0.8) !important;
+    box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.05);
+    border-color: rgba(255,165,0 ,0.7) !important;
+  }
+  &:active {
+    background-color: rgba(255,165,0 ,0.3) !important;
+    box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.2);
+    outline: none !important;
+  }
+}

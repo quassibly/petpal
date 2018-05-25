@@ -1,28 +1,37 @@
-  <h2>User dashboard - <%= @user.name %></h2>
-
-  <h3>Your Pet Pal Bookings</h3>
-  <div class="row card-container">
-   <% @user.bookings.each do |booking| %>
-   <div class="col-xs-6 col-md-3">
-    <div class="card">
-      <div class="card-image" style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= booking.pet.photo %>')"></div>
-      <div class="card-heading">
-        <p class="card-heading-item text-md"><%= link_to booking.pet.name, user_booking_path(user_id: current_user, pet_id: booking.pet_id) %></p>
-      </div>
-      <p class="text-sm">
-       Owner: <%= booking.pet.user.name %></p>
-       <p>Start: <%= booking.start_date %></p>
-       <p>End: <%= booking.end_date %></p>
-      <% if booking.status == "pending" %>
-        <p style="color:orange"><%= booking.status %></p>
-        <% elsif booking.status == "Accepted" %>
-        <p style="color:green"><%= booking.status %>
-          <% else %>
-          <p style="color:red"><%= booking.status %>
-        <%end%>
-     </div>
-   </div>
-   <% end %>
- </div>
+<br>
+<h2>User dashboard - <%= @user.name %></h2>
+<br>
+<h3>Your Pet Pal Bookings</h3>
+<br>
 
 
+<div class="featured-container">
+  <div class="container">
+    <div class="row">
+        <% @user.bookings.each do |booking| %>
+           <%= link_to user_booking_path(user_id: current_user, pet_id: booking.pet_id) do %>
+          <div class="col-xs-6 col-md-3">
+            <div class="card">
+              <div class="card-image" style="background-image: url(<%= booking.pet.photo %>)"></div>
+              <div class="card-heading">
+                <p class="card-heading-item text-md"><%= booking.pet.name %></p>
+                <p class="card-heading-item text-sm"><%= booking.pet.age %></p>
+              </div>
+              <!-- pet.location to be added instead placeholder! -->
+              <p class="card-subheading text-xs"><%= booking.pet.location %></p>
+              <p>Start: <%= booking.start_date %></p>
+              <p>End: <%= booking.end_date %></p>
+              <% if booking.status == "pending" %>
+                <p style="color:orange"><%= booking.status %></p>
+              <% elsif booking.status == "Accepted" %>
+                <p style="color:green"><%= booking.status %>
+              <% else %>
+              <p style="color:red"><%= booking.status %>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+       <% end %>
+    </div>
+  </div>
+</div>

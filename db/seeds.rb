@@ -13,7 +13,7 @@ Pet.create(name: "Mr Sniffles", animal_type: "Bunny", age: 2, home_stay: true, a
 Pet.create(name: "Robert Rubby", animal_type: "Duck", age: 1, home_stay: true, user_id: 1, location: "Unter den Linden 10, 10117 Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527078833/hbkgdxjzr4bwzsi6ba5g.jpg")
 Pet.create(name: "Ginger", animal_type: "Cat", age: 7, home_stay: true, take_away: true, user_id: 4, location: "Am Nordbahnhof 3, 10115 Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527086953/acz0fjbsvhnf3l0is1wa.jpg")
 Pet.create(name: "Kinkaid", animal_type: "Dog", breed: "Golden Retriever", age: 3, home_stay: true, take_away: true, user_id: 1, location:"Linienstraße 130, 10115 Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527080564/a0lskfz9nnjyfib6oeah.jpg")
-Pet.create(name: "Milly", animal_type: "Snail", age: 2, home_stay: true, user_id: 3,location: "10965 Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527086805/mza9s2tuzzhlpcfiwgi7.jpg")
+Pet.create(name: "Milly", animal_type: "Snail", age: 2, home_stay: true, user_id: 3,location: "Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527086805/mza9s2tuzzhlpcfiwgi7.jpg")
 Pet.create(name: "Poppa", animal_type: "Pony", breed: "Iceland Pony", age: 4, home_stay: true, user_id:3, location: "Mollstraße 1, 10178 Berlin", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527087012/efqmq8rybzea5ga09l3g.jpg")
 Pet.create(name: "Cordelia", animal_type: "Dog", breed: "Afghan Hound", age: 8, home_stay: true, take_away: true, user_id: 2, location: "Gutenbergstraße 98, 14467 Potsdam", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242467/dog_site_part.jpg")
 Pet.create(name: "Buttercup", animal_type: "Dog", breed: "Shar-Pei", age: 1, home_stay: true, user_id: 3, location: "Angerstraße 40, 04177 Leipzig", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242468/puppy_with_wringkles.jpg")
@@ -23,7 +23,6 @@ Pet.create(name: "Remington", animal_type: "Dog", breed: "Dalmatian", age: 2, ho
 Pet.create(name: "Bullet", animal_type: "Dog", breed: "Golden Retriever", age: 6, take_away: true, user_id: 1, location: "Mengstraße 4, 23552 Lübeck", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242468/Golden_with_mane.jpg")
 Pet.create(name: "Daisy", animal_type: "Dog", breed: "Corgy", age: 4, take_away: true, user_id: 4, location: "Ottostraße 6, 18057 Rostock", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242467/corgi.jpg")
 Pet.create(name: "Brunhilda", animal_type: "Dog", breed: "Komondor", age: 8, home_stay: true, user_id: 2, location: "Mönchstraße 38, 18439 Stralsund", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242467/dreadlock_dog.jpg")
-
 
 Booking.create(pet_id: 2, user_id: 1, start_date: 20180106, end_date: 20180202 )
 Booking.create(pet_id: 5, user_id: 1, start_date: 20180105, end_date: 20180202 )
