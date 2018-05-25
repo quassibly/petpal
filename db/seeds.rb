@@ -1,7 +1,7 @@
 User.create(email: "daniel.blake1@hotmail.co.uk", password: "password", name: "Daniel")
-User.create(email: "lota@gmail.com", password: "123123", name: "lota")
-User.create(email: "kolja.lucht@gmail.com", password: "kolja1234", name: "kolja")
-User.create(email: "quassibly@gmail.com", password: "password", name: "meredith")
+User.create(email: "lota@gmail.com", password: "123123", name: "Lota")
+User.create(email: "kolja.lucht@gmail.com", password: "kolja1234", name: "Kolja")
+User.create(email: "quassibly@gmail.com", password: "password", name: "Meredith")
 
 
 
@@ -23,6 +23,7 @@ Pet.create(name: "Remington", animal_type: "Dog", breed: "Dalmatian", age: 2, ho
 Pet.create(name: "Bullet", animal_type: "Dog", breed: "Golden Retriever", age: 6, take_away: true, user_id: 1, location: "Mengstraße 4, 23552 Lübeck", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242468/Golden_with_mane.jpg")
 Pet.create(name: "Daisy", animal_type: "Dog", breed: "Corgy", age: 4, take_away: true, user_id: 4, location: "Ottostraße 6, 18057 Rostock", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242467/corgi.jpg")
 Pet.create(name: "Brunhilda", animal_type: "Dog", breed: "Komondor", age: 8, home_stay: true, user_id: 2, location: "Mönchstraße 38, 18439 Stralsund", remote_photo_url: "http://res.cloudinary.com/novelty142/image/upload/v1527242467/dreadlock_dog.jpg")
+
 Booking.create(pet_id: 2, user_id: 1, start_date: 20180106, end_date: 20180202 )
 Booking.create(pet_id: 5, user_id: 1, start_date: 20180105, end_date: 20180202 )
 Booking.create(pet_id: 6, user_id: 2, start_date: 20180104, end_date: 20180202 )
