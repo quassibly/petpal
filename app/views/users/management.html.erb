@@ -33,13 +33,14 @@
   <div class="row card-container">
     <% @pets.each do |pet| %>
       <div class="col-xs-6 col-md-3">
-        <%= link_to pet_path(pet) %>
+        <%= link_to pet_path(pet) do %>
           <div class="card">
             <div class="card-image"style="height: 200px; width: 200px; border: solid 1px grey; background-image: url('<%= pet.photo %>')" ></div>
             <div class="card-heading">
               <p class="card-heading-item text-md"><%= pet.name %></p>
             </div>
           </div>
+        <% end %>
       </div>
     <% end %>
   </div>
