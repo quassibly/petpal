@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :home]
 
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
