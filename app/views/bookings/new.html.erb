@@ -1,8 +1,17 @@
-<h2>Pet Pal booking</h2>
+<div class="booking-container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
 
-<form action="<%= pet_bookings_path(@pet) %>" method="post">
+<h2 style="padding-top: 40px;padding-bottom: 30px;">Pet Pal booking</h2>
+<!-- <h2>Pet Pal booking</h2> -->
+
+<form action="<%= pet_bookings_path(@pet) %>" method="post" style="display: flex; align-items: center">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <label for="dates">Dates</label>
-  <input type="text" name="booking[booking_date]" id="flatpickr" ref="flatpickr" placeholder="Select a date" />
-  <input type="submit" name="" value="submit">
+  <label for="dates" style="margin-right: 20px; font-weight: 600; font-size: 20px;">Dates</label>
+  <input style="height:40px; border-radius: 6px; border: 1px solid silver; padding-left: 6px; width: 260px; color: grey;" type="text" name="booking[booking_date]" id="flatpickr" ref="flatpickr" placeholder="Select a date" />
+  <input type="submit" name="" value="submit" style="margin-left: 30px;">
 </form>
+  </div>
+
+</div>
+</div>
