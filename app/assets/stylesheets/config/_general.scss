@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Roboto"
 }
 
 p {
@@ -8,7 +9,7 @@ p {
 
 a p {
   text-decoration: none !important;
-  color: rgba(0,0,0,0.9);
+  // color: rgba(0,0,0,0.9);
 }
 
 h1, h2, h3, h4, h5 {
@@ -20,9 +21,14 @@ input, select {
   outline: none !important;
 }
 
+.container-pp {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .main-container {
   min-height: calc(100vh - 170px);
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 
@@ -66,20 +72,30 @@ input, select {
 
 .main-form form {
   display: flex;
+  select, input {
+    width: 200px;
+    height: 40px !important;
+    margin-right: 20px;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    border-radius: 4px !important;
+  }
+  input[type="submit"] {
+    width: 160px;
+  }
 }
 
 input[type="submit"] {
-  background-color: #fff !important;
+  background-color: darkorange !important;
   height: 40px;
   border: 1px solid rgba(0,0,0,0.1) !important;
   padding-left: 14px;
   padding-right: 14px;
   border-radius: 4px !important;
-  color: rgba(0,0,0,0.7);
+  color: white;
   &:hover {
-    background-color: rgba(255,165,0 ,0.1) !important;
+    background-color: rgba(255,165,0 ,0.8) !important;
     box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.05);
-    border-color: rgba(255,165,0 ,0.15) !important;
+    border-color: rgba(255,165,0 ,0.7) !important;
   }
   &:active {
     background-color: rgba(255,165,0 ,0.3) !important;

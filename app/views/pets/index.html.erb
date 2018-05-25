@@ -19,25 +19,26 @@
     </div>
   </div>
   <div class="main-container">
-    <div class="row card-container">
-      <% @pets.each do |pet| %>
-        <%= link_to pet_path(pet.id) do %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card">
-              <div class="card-image" style="height: 200px; width: 200px; background-image: url(<%= pet.photo %>)"></div>
-              <div class="card-heading">
-                <p class="card-heading-item text-md"><%= pet.name %></p> <p class="card-heading-item text-sm"><%= pet.age %></p>
+    <div class="row">
+      <div class="col-sm-8">
+        <% @pets.each do |pet| %>
+          <%= link_to pet_path(pet.id) do %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <div class="card-image" style="background-image: url(<%= pet.photo %>)"></div>
+                <div class="card-heading">
+                  <p class="card-heading-item text-md"><%= pet.name %></p> <p class="card-heading-item text-sm"><%= pet.age %></p>
+                </div>
+                <p class="card-subheading text-xs"><%= pet.location %></p>
               </div>
-              <p class="text-sm" style="text-align:center"><%= pet.location %></p>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div id="map"; data-markers="<%= @markers.to_json %>">
-
+      </div>
+      <!-- <div class="col-sm-4"> -->
+        <div class="col-sm-4" id="map"; data-markers="<%= @markers.to_json %>">
+        <!-- </div> -->
+      </div>
     </div>
   </div>
-  </div>
-
-
+  <!-- </div> -->

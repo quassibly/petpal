@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'users/:user_id/management', to: 'users#management', as: 'pet_management'
 
   root to: 'pets#index'
-  get '/users/:user_id/bookings/:pet_id/accept', to: 'bookings#accept', as: 'accept_booking'
+  # get '/users/:user_id/bookings/:pet_id/accept', to: 'bookings#accept', as: 'accept_booking'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pets, :users do
