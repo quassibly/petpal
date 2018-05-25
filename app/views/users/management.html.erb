@@ -1,8 +1,9 @@
-<div class="header" %>
-  <h1> Pet Pal Management</h1>
-</div>
-<br>
-<h3>Your Pet Pals Bookings</h3>
+
+<div class="featured-container">
+  <div class="container">
+    <h1 class="user-dash-title">Pet Pal Management</h1>
+
+    <h2 class="user-dash-subtitle">Your Pet Pals Bookings</h2>
 <div class="row card-container">
   <% @pets.each do |pet| %>
     <% pet.bookings.each do |booking| %>
@@ -13,7 +14,7 @@
             <div class="card-heading">
               <p class="card-heading-item text-md"><%= booking.pet.name %></p>
             </div>
-            <p class="text-sm">
+            <p class="card-subheading text-sm">
             Booker: <%= booking.user.name %></p>
             <% if booking.status == "pending" %>
              <p style="color:orange"><%= booking.status %></p>
@@ -29,7 +30,7 @@
     <% end %>
   </div>
 
-  <h3>Your Pals</h3>
+  <h2 style="margin-top: 40px !important;" class="user-dash-subtitle">Your Pals</h2>
   <div class="row card-container">
     <% @pets.each do |pet| %>
       <div class="col-xs-6 col-md-3">
@@ -38,11 +39,19 @@
             <div class="card-image" style="background-image: url(<%= pet.photo %>)"></div>
             <div class="card-heading">
                 <p class="card-heading-item text-md"><%= pet.name %></p>
-                <p class="card-heading-item text-sm"><%= pet.age %></p>
               </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
-    <%= link_to 'Add a new Pet Pal!', new_pet_path, class:"btn btn-primary" %>
+
+    <%= link_to 'Add a new Pet Pal!', new_pet_path,
+    style:"color: orange; background-color: orange;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    padding: 8px 14px;
+    border-radius: 4px !important;
+    color: white; margin-top: 20px;" %>
+
+  </div>
+</div>
