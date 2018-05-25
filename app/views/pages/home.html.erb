@@ -1,41 +1,41 @@
-<div class="banner" style="background-image: linear-gradient(115.7914458858877deg, rgba(250, 247, 245,0.4) 8.74405705229794%,rgba(226, 210, 196,0.4) 89.09270998415212%), url(<%= image_path('banner_homepage.jpg') %>);">
-  <div class="banner-content">
-    <h1>PetPal</h1>
-    <br>
-    <h2>Book a PetPal</h2>
-    <br>
-    <div class="row">
-      <div class="col-xs-12 main-form">
 
+<div class="banner" style="background-image: url(<%= image_path('banner_homepage.jpg') %>);">
+  <div class="banner-content container">
+    <h1 class="banner-heading">PetPal</h1>
+    <h2 class="banner-subheading">Book a pal</h2>
+    <div class="container">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 banner-form main-form">
         <%= form_tag pets_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
         class: "form-control"%>
-          <%= submit_tag("Find your Pal")%>
-
-            <% end %>
-          </div>
+        <%= submit_tag("Find your Pal")%>
+          <% end %>
         </div>
+      </div>
   </div>
 </div>
 
 
 <div class="featured-container">
-  <h2>Featured Pals</h2>
-
-  <% @pets.each do |pet| %>
-    <%= link_to pet_path(pet.id) do %>
-      <div class="col-xs-6 col-md-4">
-        <div class="card">
-          <div class="card-image" style="height: 200px; width: 200px; background-image: url(<%= pet.photo %>)">
+  <div class="container">
+    <div class="row">
+      <h2 class="featured-heading">Featured Pals</h2>
+        <% @pets.each do |pet| %>
+          <%= link_to pet_path(pet.id) do %>
+          <div class="col-xs-6 col-md-3">
+            <div class="card">
+              <div class="card-image" style="background-image: url(<%= pet.photo %>)"></div>
+              <div class="card-heading">
+                <p class="card-heading-item text-md"><%= pet.name %></p>
+                <p class="card-heading-item text-sm"><%= pet.age %></p>
+              </div>
+              <!-- pet.location to be added instead placeholder! -->
+              <p class="card-subheading text-xs"><%= pet.location %></p>
+            </div>
           </div>
-          <div class="card-heading">
-            <p class="card-heading-item text-md"><%= pet.name %></p>
-            <p class="card-heading-item text-sm"><%= pet.age %></p>
-          </div>
-          <p class="text-sm" style="text-align:center"><%= pet.location %></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
