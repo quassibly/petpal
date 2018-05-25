@@ -1,8 +1,7 @@
 
 <div class="banner" style="background-image: url(<%= image_path('banner_homepage.jpg') %>);">
   <div class="banner-content container">
-    <h1 class="banner-heading">PetPal</h1>
-    <h2 class="banner-subheading">Book a pal</h2>
+    <h1 class="banner-heading">Book a Pal</h1>
     <div class="container">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3 banner-form main-form">
         <%= form_tag pets_path, method: :get do %>
@@ -28,7 +27,6 @@
               <div class="card-image" style="background-image: url(<%= pet.photo %>)"></div>
               <div class="card-heading">
                 <p class="card-heading-item text-md"><%= pet.name %></p>
-                <p class="card-heading-item text-sm"><%= pet.age %></p>
               </div>
               <!-- pet.location to be added instead placeholder! -->
               <p class="card-subheading text-xs"><%= pet.location %></p>
