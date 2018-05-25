@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(115.7914458858877deg, rgba(250, 247, 245,0.4) 8.74405705229794%,rgba(226, 210, 196,0.4) 89.09270998415212%), url(<%= image_path('banner_homepage.jpg') %>);">
   <div class="banner-content">
-    <h1>Book a PetPal</h1>
+    <h1>PetPal</h1>
+    <br>
+    <h2>Book a PetPal</h2>
+    <br>
     <div class="row">
       <div class="col-xs-12 main-form">
 
@@ -20,19 +23,19 @@
 <div class="featured-container">
   <h2>Featured Pals</h2>
 
-<% @pets.each do |pet| %>
-      <%= link_to pet_path(pet.id) do %>
+  <% @pets.each do |pet| %>
+    <%= link_to pet_path(pet.id) do %>
       <div class="col-xs-6 col-md-4">
         <div class="card">
-          <div class="card-image" style="height: 200px; width: 200px; background-image: url(<%= pet.photo %>)"></div>
-          <div class="card-heading">
-            <p class="card-heading-item text-md"><%= pet.name %></p> <p class="card-heading-item text-sm"><%= pet.age %></p>
+          <div class="card-image" style="height: 200px; width: 200px; background-image: url(<%= pet.photo %>)">
           </div>
-          <!-- pet.location to be added instead placeholder! -->
+          <div class="card-heading">
+            <p class="card-heading-item text-md"><%= pet.name %></p>
+            <p class="card-heading-item text-sm"><%= pet.age %></p>
+          </div>
           <p class="text-sm" style="text-align:center"><%= pet.location %></p>
         </div>
       </div>
-      <% end %>
-
-      <% end %>
-    </div>
+    <% end %>
+  <% end %>
+</div>
