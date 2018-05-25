@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
     @booking.pet_id = pet_id
   if @booking.save
     flash[:success] = "Your booking has been created!"
-      redirect_to user_booking_path(user_id: current_user, id: @booking.pet_id)
+      redirect_to confirm_booking_path(@booking)
     else
       flash.now[:alert] = "Your new booking couldn't be created! Are you missing something?"
       render :new
@@ -95,7 +95,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     skip_authorization
   end
-  
+
   private
 
   # sanitizer params coming via form
